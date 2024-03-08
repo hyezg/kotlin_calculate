@@ -1,6 +1,5 @@
 package com.example.kotlin_study
 
-
 fun main() {
     while(true) {
         val addcal = AddOperation()
@@ -39,7 +38,6 @@ open class Calculator() {
     open fun calculate(num1: Int, num2: Int){
 
     }
-
 }
 
 class AddOperation : Calculator() {
