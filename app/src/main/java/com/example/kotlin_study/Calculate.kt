@@ -3,10 +3,7 @@ package com.example.kotlin_study
 
 fun main() {
     while(true) {
-        val addcal = AddOperation()
-        val subcal = SubstractOperation()
-        val multical = MultiplyOperation()
-        val divical = DivideOperation()
+        val cal = Calculator()
 
         println("num1을 입력하세요.")
         val num1: Int = readLine()!!.toInt()
@@ -26,41 +23,41 @@ fun main() {
         val op: Int = readLine()!!.toInt()
 
         when(op) {
-            1 -> addcal.calculate(num1,num2)
-            2 -> subcal.calculate(num1,num2)
-            3 -> multical.calculate(num1,num2)
-            4 -> divical.calculate(num1,num2)
+            1 -> AddOperation().add(num1,num2,op)
+            2 -> SubstractOperation().sub(num1,num2,op)
+            3 -> MultiplyOperation().mul(num1,num2,op)
+            4 -> DivideOperation().div(num1,num2,op)
             else -> throw IllegalAccessException("1~4까지 범위안의 숫자를 입력해야합니다.")
         }
     }
 }
 
-open class Calculator() {
-    open fun calculate(num1: Int, num2: Int){
-
+open class Calculator {
+    open fun calculate(num1: Int, num2: Int, op: Int): Int {
+        return 0
     }
-
 }
 
+
 class AddOperation : Calculator() {
-    override fun calculate(num1: Int, num2: Int)  {
-        println("num1+num2 = ${num1+num2}")
+    fun add(num1: Int, num2: Int, op :Int) : Int {
+        return num1+num2
     }
 }
 
 class SubstractOperation : Calculator() {
-    override fun calculate(num1: Int, num2: Int) {
-        println("num1-num2 = ${num1-num2}")
+    fun sub(num1: Int, num2: Int, op :Int) : Int {
+        return num1-num2
     }
 }
 class MultiplyOperation : Calculator() {
-    override fun calculate(num1: Int, num2: Int) {
-        println("num1*num2 = ${num1*num2}")
+    fun mul(num1: Int, num2: Int, op :Int) : Int {
+        return num1*num2
     }
 }
 class DivideOperation : Calculator() {
-    override fun calculate(num1: Int, num2: Int) {
-        println("num1/num2 = ${num1/num2}")
+    fun div(num1: Int, num2: Int, op :Int) : Int {
+        return num1/num2
     }
 }
 
