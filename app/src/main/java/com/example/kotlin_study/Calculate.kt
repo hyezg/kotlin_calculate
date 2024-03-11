@@ -1,6 +1,5 @@
 package com.example.kotlin_study
 
-
 fun main() {
     while(true) {
         val cal = Calculator()
